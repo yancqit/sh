@@ -1,0 +1,17 @@
+[Unit]
+Description=MinIO
+Documentation=https://docs.min.io
+Wants=network-online.target
+After=network-online.target
+AssertFileIsExecutable=/home/minio/minio
+[Service]
+User=root
+Group=root
+EnvironmentFile=/home/minio/conf/minio.conf
+ExecStart=/home/minio/minio server $MINIO_VOLUMES
+Restart=always
+LimitNOFILE=65536
+TimeoutStopSec=infinity
+SendSIGKILL=no
+[Install]
+WantedBy=multi-user.target

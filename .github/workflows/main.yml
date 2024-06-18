@@ -56,7 +56,7 @@ jobs:
       - name: nightingale
         run: |
           docker pull flashcatcloud/nightingale:7.0.0-beta.11
-          docker tag flashcatcloud/nightingale:7.0.0-beta.10 registry.cn-hangzhou.aliyuncs.com/syncimage/nightingale:7.0.0
+          docker tag flashcatcloud/nightingale:7.0.0-beta.11 registry.cn-hangzhou.aliyuncs.com/syncimage/nightingale:7.0.0
           docker push registry.cn-hangzhou.aliyuncs.com/syncimage/nightingale:7.0.0
 
       - name: zentao

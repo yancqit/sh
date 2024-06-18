@@ -1,0 +1,21 @@
+name: Docker Image
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: login
+        run: docker login --username=yancqit@126.com --password=aliYav1.12das registry.cn-hangzhou.aliyuncs.com
+        
+      - name: minio
+        run: docker pull minio/minio:RELEASE.2024-06-11T03-13-30Z
+
+      - name: push minio
+        run: |
+          docker pull minio/minio:RELEASE.2024-06-11T03-13-30Z
+          docker tag minio/minio:RELEASE.2024-06-11T03-13-30Z registry.cn-hangzhou.aliyuncs.com/yanbase/minio:2024.06.11
+          docker push registry.cn-hangzhou.aliyuncs.com/yanbase/minio:2024.06.11

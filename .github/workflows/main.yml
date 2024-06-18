@@ -1,4 +1,4 @@
-name: Docker Image
+name: push docker images
 on:
   workflow_dispatch:
 
@@ -6,16 +6,86 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: login
         run: docker login --username=yancqit@126.com --password=aliYav1.12das registry.cn-hangzhou.aliyuncs.com
-        
-      - name: minio
-        run: docker pull minio/minio:RELEASE.2024-06-11T03-13-30Z
 
-      - name: push minio
+      - name: minio
         run: |
-          docker pull minio/minio:RELEASE.2024-06-11T03-13-30Z
-          docker tag minio/minio:RELEASE.2024-06-11T03-13-30Z registry.cn-hangzhou.aliyuncs.com/syncimage/minio:2024.06.11
-          docker push registry.cn-hangzhou.aliyuncs.com/syncimage/minio:2024.06.11
+          docker pull minio/minio:RELEASE.2024-06-13T22-53-53Z
+          docker tag minio/minio:RELEASE.2024-06-13T22-53-53Z registry.cn-hangzhou.aliyuncs.com/syncimage/minio:2024.06.13
+          docker push registry.cn-hangzhou.aliyuncs.com/syncimage/minio:2024.06.13
+
+      - name: mysql
+        run: |
+          docker pull mysql:8.4.0
+          docker tag mysql:8.4.0 registry.cn-hangzhou.aliyuncs.com/syncimage/mysql:8.4.0
+          docker push registry.cn-hangzhou.aliyuncs.com/syncimage/mysql:8.4.0
+          
+      - name: redis
+        run: |
+          docker pull redis:7.2.5-alpine
+          docker tag redis:7.2.5-alpine registry.cn-hangzhou.aliyuncs.com/syncimage/redis:7.2.5
+          docker push registry.cn-hangzhou.aliyuncs.com/syncimage/redis:7.2.5
+          
+      - name: nginx
+        run: |
+          docker pull nginx:1.27.0-alpine
+          docker tag nginx:1.27.0-alpine registry.cn-hangzhou.aliyuncs.com/syncimage/nginx:1.27.0
+          docker push registry.cn-hangzhou.aliyuncs.com/syncimage/nginx:1.27.0
+
+      - name: rabbitmq
+        run: |
+          docker pull rabbitmq:3.13.3-management-alpine
+          docker tag rabbitmq:3.13.3-management-alpine registry.cn-hangzhou.aliyuncs.com/syncimage/rabbitmq:3.13.3
+          docker push registry.cn-hangzhou.aliyuncs.com/syncimage/rabbitmq:3.13.3
+
+      - name: victoria-metrics
+        run: |
+          docker pull victoriametrics/victoria-metrics:v1.101.0
+          docker tag victoriametrics/victoria-metrics:v1.101.0 registry.cn-hangzhou.aliyuncs.com/syncimage/victoriametrics:1.101.0
+          docker push registry.cn-hangzhou.aliyuncs.com/syncimage/victoriametrics:1.101.0
+
+      - name: elasticsearch
+        run: |
+          docker pull elasticsearch:8.14.1
+          docker tag elasticsearch:8.14.1 registry.cn-hangzhou.aliyuncs.com/syncimage/elasticsearch:8.14.1
+          docker push registry.cn-hangzhou.aliyuncs.com/syncimage/elasticsearch:8.14.1
+
+      - name: nightingale
+        run: |
+          docker pull flashcatcloud/nightingale:7.0.0-beta.11
+          docker tag flashcatcloud/nightingale:7.0.0-beta.10 registry.cn-hangzhou.aliyuncs.com/syncimage/nightingale:7.0.0
+          docker push registry.cn-hangzhou.aliyuncs.com/syncimage/nightingale:7.0.0
+
+      - name:zentao
+        run: |
+          docker pull easysoft/zentao:20.1.0
+          docker tag easysoft/zentao:20.1.0 registry.cn-hangzhou.aliyuncs.com/syncimage/zentao:20.1.0
+          docker push registry.cn-hangzhou.aliyuncs.com/syncimage/zentao:20.1.0
+
+      - name:nexus3
+        run: |
+          docker pull sonatype/nexus3:3.69.0
+          docker tag sonatype/nexus3:3.69.0 registry.cn-hangzhou.aliyuncs.com/syncimage/nexus3:3.69.0
+          docker push registry.cn-hangzhou.aliyuncs.com/syncimage/nexus3:3.69.0
+
+      - name: alpine
+        run: |
+          docker pull alpine:3.20.0
+          docker tag alpine:3.20.0 registry.cn-hangzhou.aliyuncs.com/syncimage/alpine:3.20.0
+          docker push registry.cn-hangzhou.aliyuncs.com/syncimage/alpine:3.20.0
+
+      - name: ollama
+        run: |
+          docker pull ollama/ollama:0.1.45-rc2
+          docker tag ollama/ollama:0.1.45-rc2 registry.cn-hangzhou.aliyuncs.com/syncimage/ollama:0.1.45
+          docker push registry.cn-hangzhou.aliyuncs.com/syncimage/ollama:0.1.45
+          
+      - name: chroma
+        run: |
+          docker pull chromadb/chroma:0.5.2
+          docker tag chromadb/chroma:0.5.2 registry.cn-hangzhou.aliyuncs.com/syncimage/chroma:0.5.2
+          docker push registry.cn-hangzhou.aliyuncs.com/syncimage/chroma:0.5.2
+          

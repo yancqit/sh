@@ -17,5 +17,5 @@ jobs:
       - name: push minio
         run: |
           docker pull minio/minio:RELEASE.2024-06-11T03-13-30Z
-          docker tag minio/minio:RELEASE.2024-06-11T03-13-30Z registry.cn-hangzhou.aliyuncs.com/yanbase/minio:2024.06.11
-          docker push registry.cn-hangzhou.aliyuncs.com/yanbase/minio:2024.06.11
+          docker tag minio/minio:RELEASE.2024-06-11T03-13-30Z registry.cn-hangzhou.aliyuncs.com/syncimage/minio:2024.06.11
+          docker push registry.cn-hangzhou.aliyuncs.com/syncimage/minio:2024.06.11

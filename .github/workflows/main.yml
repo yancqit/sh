@@ -59,13 +59,13 @@ jobs:
           docker tag flashcatcloud/nightingale:7.0.0-beta.10 registry.cn-hangzhou.aliyuncs.com/syncimage/nightingale:7.0.0
           docker push registry.cn-hangzhou.aliyuncs.com/syncimage/nightingale:7.0.0
 
-      - name:zentao
+      - name: zentao
         run: |
           docker pull easysoft/zentao:20.1.0
           docker tag easysoft/zentao:20.1.0 registry.cn-hangzhou.aliyuncs.com/syncimage/zentao:20.1.0
           docker push registry.cn-hangzhou.aliyuncs.com/syncimage/zentao:20.1.0
 
-      - name:nexus3
+      - name: nexus3
         run: |
           docker pull sonatype/nexus3:3.69.0
           docker tag sonatype/nexus3:3.69.0 registry.cn-hangzhou.aliyuncs.com/syncimage/nexus3:3.69.0
